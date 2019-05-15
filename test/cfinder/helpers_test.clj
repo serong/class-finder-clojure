@@ -48,6 +48,7 @@
     (is (= true (has-pattern "Foobar" "Foo")))
     (is (= false (has-pattern "Foo" "Fooo")))
     (is (= false (has-pattern "Boo" "Bao")))
+    (is (= false (has-pattern "FooBar" "FoB*")))
     )
   )
 
