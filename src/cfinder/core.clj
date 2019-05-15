@@ -5,7 +5,7 @@
 (require '[clojure.string :as str])
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Print the matching class names."
   [& args]
 
   (def lines
@@ -13,13 +13,10 @@
          (map str/trim)
          (filter #(not (= "" %)))
          (filter #(matches % (second args)))
-         (sort-by remove-package-name)
-         )
-    )
+         (sort-by remove-package-name)))
 
   (doseq
     [line lines]
-    (println ">>> " line)
-    )
+    (println line))
 
   )
