@@ -3,21 +3,20 @@
             [cfinder.helpers :refer :all]))
 
 (deftest test-upper-case-char
-  (testing "Ahoy there"
+  (testing "Checking if a character is uppercase"
     (is (= true (upper-case-char? "S")))
     (is (= false (upper-case-char? "s")))
     )
   )
 
-
 (deftest test-remove-package-name
-  (testing "Ahoy there"
+  (testing "Removing package name from the whole name"
     (is (= "FooBar" (remove-package-name "a.b.c.FooBar")))
     )
   )
 
 (deftest test-sanitize-pattern
-  (testing "Ahoy there"
+  (testing "Correctly sanitizing a string."
     (is (= "FFF" (sanitize-pattern "fff")))
     (is (= "FFF" (sanitize-pattern "FFF")))
     (is (= "Foo" (sanitize-pattern "Foo")))
@@ -25,7 +24,7 @@
   )
 
 (deftest test-split
-  (testing "Ahoy there"
+  (testing "Splitting a string at uppercase letters."
     (is (= '("Foo" "Bar") (split-at-uppercase "FooBar")))
     (is (= '("Foo") (split-at-uppercase "Foo")))
     (is (= '("F" "O" "O") (split-at-uppercase "FOO")))
@@ -35,7 +34,7 @@
 
 
 (deftest test-special-pattern
-  (testing "Ahoy there"
+  (testing "Pattern checking when * is involved."
     (is (= true (has-pattern-special "Foo" "F*o")))
     (is (= true (has-pattern-special "Boo" "B**")))
     )
@@ -43,7 +42,7 @@
 
 
 (deftest test-pattern
-  (testing "Ahoy there"
+  (testing "Pattern checking in general."
     (is (= true (has-pattern "Foo" "F*o")))
     (is (= true (has-pattern "Boo" "B**")))
     (is (= true (has-pattern "Foobar" "Foo")))
@@ -54,7 +53,7 @@
 
 
 (deftest test-subset
-  (testing "Ahoy there"
+  (testing "Getting a subset of given list of strings based on the pattern."
     (is (= '("Bar" "Baz") (get-subset-of '("Foo" "Bar" "Baz") "Foo")))
     (is (= '("") (get-subset-of '("Foo" "Bar" "Baz") "Baz")))
     (is (= '() (get-subset-of '("Foo" "Bar" "Baz") "Bad")))
@@ -66,7 +65,7 @@
   )
 
 (deftest test-matches
-  (testing "Ahoy there"
+  (testing "Matching a classname to the individual pattern."
     (is (= true (matches "FooBarBaz" "Foo")))
     (is (= true (matches "FooBarBaz" "Baz")))
     (is (= true (matches "FooBarBazaar" "Baz")))
