@@ -11,7 +11,6 @@
 
 (defn remove-package-name
   "Remove the package name from class name.
-
     Example: a.b.c.FooBar > FooBar"
   [class-name]
   (->
@@ -22,7 +21,6 @@
 
 (defn split-at-uppercase
   "Split a given string at uppercase letters.
-
     Example: FooBarBaz > ('Foo', 'Bar', 'Baz')"
   [class-name]
   (loop
@@ -45,7 +43,6 @@
 
 (defn has-pattern-special
   "Check if pattern exists for patterns that has *.
-
     Example: FooBar, F*o > true"
   [original pattern]
   (loop
@@ -62,7 +59,6 @@
 
 (defn has-pattern
   "Generic check if pattern exists in a given piece of string.
-
     Example: FooBar, FoBa > true
              FooBar, F*Ba > true"
   [original pattern]
@@ -75,7 +71,6 @@
 
 (defn get-subset-of
   "Get a subset from a list based on pattern matching.
-
     Example: (Foo Bar Baz), Foo > (Bar Baz)"
   [class-coll pattern]
   (loop
@@ -93,7 +88,6 @@
   "Capitalize the pattern if it is all lowercase.
   Provides an easy workaround for making the search case-insensitive if
   the pattern is something like: 'Bar '
-
     Example: fff > FFF
   "
   [pattern]
@@ -110,7 +104,6 @@
   final state is reached to calculate if the classname matches the
   patterns. "
   [ccoll pcoll strict]
-
   (loop
     [[cc pc is-strict] [ccoll pcoll strict]]
     (cond
@@ -124,10 +117,8 @@
 
 (defn matches
   "Matches the classname to pattern.
-
     Example: FooBarBaz, FoBa > true"
   [class-name pattern]
-
   (match-loop (split-at-uppercase class-name)
               (split-at-uppercase (sanitize-pattern (str/trim pattern)))
               (not (= (str/trim pattern) pattern)))
